@@ -8,7 +8,7 @@ type People interface {
 
 type Student struct{}
 
-func (stu Student) Speak(think string) (talk string) {
+func (stu *Student) Speak(think string) (talk string) {
 	if think == "love" {
 		talk = "you are a good boy"
 	} else {
@@ -29,3 +29,5 @@ func main() {
 	think := "love"
 	fmt.Println(peo.Speak(think))
 }
+
+// 问题 上面的代码能通过编译吗
