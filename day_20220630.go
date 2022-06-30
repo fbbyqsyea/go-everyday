@@ -21,6 +21,10 @@ func main() {
 	}
 	fmt.Println(MyMap1, MyMap2)
 
+	var ss1 SliceNumber[int] = []int{1, 2, 3, 4}
+
+	fmt.Println(ss1.Len())
+
 }
 
 // 泛型的定义
@@ -44,3 +48,11 @@ type Struct1[T IFS] struct {
 func sum[T Computable](a, b T) T {
 	return a + b
 }
+
+type NumberAll interface {
+	~int | ~int64 | ~int32 | ~int16 | ~int8 | ~float64 | ~float32
+}
+
+type SliceNumber[T NumberAll] []T
+
+func (n SliceNumber[T]) Len() int { return len(n) }
